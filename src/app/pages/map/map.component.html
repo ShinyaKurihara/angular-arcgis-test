@@ -1,0 +1,38 @@
+<h2>ArcGIS Map</h2>
+<div>
+  <button (click)="changeBasemap('streets-navigation-vector')">道路地図</button>
+  <button (click)="changeBasemap('topo-vector')">地形図</button>
+  <button (click)="changeBasemap('satellite')">衛星写真</button>
+  <button (click)="changeBasemap('hybrid')">ハイブリッド</button>
+</div>
+<div>
+<button
+  (click)="toggleLayerVisibility('featureLayer1')"
+  [class.active]="isLayerVisible('featureLayer1')"
+>
+  Feature Layer {{ isLayerVisible('featureLayer1') ? 'ON' : 'OFF' }}
+</button>
+
+<button
+  (click)="toggleLayerVisibility('geojsonLayer')"
+  [class.active]="isLayerVisible('geojsonLayer')"
+>
+  GeoJSON Layer {{ isLayerVisible('geojsonLayer') ? 'ON' : 'OFF' }}
+</button>
+
+<button
+  (click)="toggleLayerVisibility('tileLayer1')"
+  [class.active]="isLayerVisible('tileLayer1')"
+>
+  Tile Layer {{ isLayerVisible('tileLayer1') ? 'ON' : 'OFF' }}
+</button>
+
+<button
+  (click)="toggleLayerVisibility('topoLayer')"
+  [class.active]="isLayerVisible('topoLayer')"
+>
+  Topo Layer {{ isLayerVisible('topoLayer') ? 'ON' : 'OFF' }}
+</button>
+
+</div>
+<div #mapViewDiv style="height: 500px; width: 100%"></div>
